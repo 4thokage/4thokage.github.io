@@ -1,0 +1,21 @@
+<main id="work">
+  <h1 class="lg-heading">
+    My
+    <span>Projects</span>
+  </h1>
+  <h3>
+    A showcase of my personal projects
+  </h3>
+  <section class="projects">
+    <article class="card" *ngFor="let project of projects">
+      <img *ngIf="project.imageURL" [src]="project.imageURL" [alt]="project.name">
+      <div class="content">
+        <h5>{{project.name}}</h5>
+        <p>{{project.description}}</p>
+      </div>
+      <div class="footer">
+        <a [href]="project.gitURL" class="button" role="button">View on Github</a>
+      </div>
+    </article>
+  </section>
+</main>

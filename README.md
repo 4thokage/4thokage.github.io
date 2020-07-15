@@ -1,3 +1,3 @@
-# [jose-rodrigues.info](jose-rodrigues.info)
+# [jose-rodrigues.info](https://jose-rodrigues.info)
 
-Static version on [github pages](https://4thokage.github.io)
+A static version is available [github pages](https://4thokage.github.io)

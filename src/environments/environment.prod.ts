@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://api.jose-rodrigues.info/v1/devinfo/'
 };
