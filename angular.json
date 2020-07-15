@@ -128,7 +128,7 @@
   "defaultProject": "ng-portfolio",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
