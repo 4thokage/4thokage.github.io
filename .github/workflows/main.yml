@@ -1,5 +1,5 @@
 on: push
-name: Build & Deploy
+name: CI
 jobs:
   build:
     runs-on: ubuntu-latest
