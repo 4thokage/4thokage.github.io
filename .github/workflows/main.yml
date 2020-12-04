@@ -35,6 +35,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SSHKEYPASSWORD }}  
           ARGS: "-rltgoDzvO --delete"
           SOURCE: "dist/ng-portfolio"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
