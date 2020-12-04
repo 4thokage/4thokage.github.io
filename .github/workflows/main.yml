@@ -32,7 +32,7 @@ jobs:
            BRANCH: gh-pages  
            FOLDER: dist/ng-portfolio
       - name: Deploy to Production server
-        uses: easingthemes/ssh-deploy@v2.1.1
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"
