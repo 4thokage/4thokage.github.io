@@ -21,7 +21,7 @@ import {Component} from '@angular/core';
           <use xlink:href="assets/icons/icons.svg#github"></use>
         </svg>
         <svg accesskey="c" role="button" xmlns="http://www.w3.org/2000/svg"
-             (click)="onIconClicked('https://jose-rodrigues.info/cv')">
+             (click)="onIconClicked('https://4html.net/PDFViewer/#/source/xnrxxsrjmtstjttyxtjwvvsdkwdcznjf.pdf')">
           <title>Curriculum Vitae</title>
           <use xlink:href="assets/icons/icons.svg#cv"></use>
         </svg>
