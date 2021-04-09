@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://devinfo.free.beeceptor.com/',
+  apiUrl: 'https://api.jose-rodrigues.info/v1/devinfo/',
 };
 
 /*

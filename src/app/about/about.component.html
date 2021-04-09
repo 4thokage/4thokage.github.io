@@ -14,8 +14,10 @@
       <div class="container" *ngFor="let jobEntry of jobs;let even = even" [ngClass]="even ? 'left' : 'right'">
         <div class="content">
           <h5 class="date-range">{{jobEntry.startDate | date}} / {{jobEntry.endDate || presentDate | date}}</h5>
-          <a href="{{jobEntry.company}}">{{jobEntry.company}}</a>
-          <pre>{{jobEntry.description}}</pre>
+          <a href="{{jobEntry.companyOrProjectURL}}">{{jobEntry.companyOrProjectURL}}</a>
+          <ul *ngFor="let item of jobEntry.responsibilities;">
+            <li>{{item}}</li>
+          </ul>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ export class JobService {
   }
 
   getJobs() {
-    return this.http.get<Job[]>(environment.apiUrl + 'jobs');
+    return this.http.get<Job[]>(environment.apiUrl + 'experience');
   }
 
   getSortedJobs() {

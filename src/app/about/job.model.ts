@@ -1,6 +1,7 @@
 export class Job {
+  name: string;
+  companyOrProjectURL: string;
   startDate: string;
   endDate?: string;
-  company: string;
-  description: string;
+  responsibilities: string[];
 }

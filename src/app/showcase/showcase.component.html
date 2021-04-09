@@ -8,7 +8,7 @@
   </h3>
   <section class="projects">
     <article class="card" *ngFor="let project of projects">
-      <img *ngIf="project.imageURL" [src]="project.imageURL" [alt]="project.name">
+      <img *ngIf="project.imageURL" [attr.src]="project.imageURL" [alt]="project.name" />
       <div class="content">
         <h5>{{project.name}}</h5>
         <p>{{project.description}}</p>

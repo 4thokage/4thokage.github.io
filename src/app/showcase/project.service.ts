@@ -12,6 +12,6 @@ export class ProjectService {
   }
 
   getProjects() {
-    return this.http.get<Project[]>(environment.apiUrl + 'projects');
+    return this.http.get<Project[]>(environment.apiUrl + 'portfolio');
   }
 }
