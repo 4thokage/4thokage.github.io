@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1624468888745,
+  "timestamp": 1624471153495,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -11,21 +11,21 @@
         "ignoreVary": true
       },
       "urls": [
-        "/566-es2020.d89daca2dd23e07f821c.js",
-        "/566-es5.d89daca2dd23e07f821c.js",
+        "/566-es2020.728646bca13f611066e6.js",
+        "/566-es5.728646bca13f611066e6.js",
         "/693-es2020.4373992225cb31b83e7a.js",
         "/693-es5.4373992225cb31b83e7a.js",
-        "/97-es2020.3fad57c8382e79b1da92.js",
-        "/97-es5.3fad57c8382e79b1da92.js",
+        "/97-es2020.05c068f8a53b76917aee.js",
+        "/97-es5.05c068f8a53b76917aee.js",
         "/favicon.ico",
         "/index.html",
-        "/main-es2020.76a8b93aec520507e463.js",
-        "/main-es5.76a8b93aec520507e463.js",
+        "/main-es2020.07412e80ad472eaf9102.js",
+        "/main-es5.07412e80ad472eaf9102.js",
         "/manifest.webmanifest",
         "/polyfills-es2020.1f4e1e5c448dc45198c2.js",
         "/polyfills-es5.6e90ce86d97dfc5c123a.js",
-        "/runtime-es2020.3e198f2856a6b1219cfe.js",
-        "/runtime-es5.3e198f2856a6b1219cfe.js",
+        "/runtime-es2020.d7999ce5ca0bc8b673ec.js",
+        "/runtime-es5.d7999ce5ca0bc8b673ec.js",
         "/styles.547d5889255f19a8953c.css"
       ],
       "patterns": []
@@ -59,7 +59,7 @@
     {
       "name": "projects",
       "patterns": [
-        "https:\\/\\/api\\.jose-rodrigues\\.info\\/v1\\/devinfo\\/[^/]*"
+        "https:\\/\\/node-devinfo\\.herokuapp\\.com\\/rest\\/[^/]*"
       ],
       "strategy": "performance",
       "maxSize": 2,
@@ -72,12 +72,12 @@
     }
   ],
   "hashTable": {
-    "/566-es2020.d89daca2dd23e07f821c.js": "13f6fc0e87e6d29c595cabc02a6c00d24986e912",
-    "/566-es5.d89daca2dd23e07f821c.js": "ec26c7acdedae7974f889cdc38904bd484f5643a",
+    "/566-es2020.728646bca13f611066e6.js": "13f6fc0e87e6d29c595cabc02a6c00d24986e912",
+    "/566-es5.728646bca13f611066e6.js": "ec26c7acdedae7974f889cdc38904bd484f5643a",
     "/693-es2020.4373992225cb31b83e7a.js": "4a13ecb55d3450b2a60ae618f202c59ba1670d97",
     "/693-es5.4373992225cb31b83e7a.js": "a5474a4f0918bf215f88efd1841bfd0e09994fb4",
-    "/97-es2020.3fad57c8382e79b1da92.js": "03ddcb880f0fe623c214a0266ea32eed323f00fc",
-    "/97-es5.3fad57c8382e79b1da92.js": "21903a7e34e37d634bb57c4f9b819217a717b8c3",
+    "/97-es2020.05c068f8a53b76917aee.js": "03ddcb880f0fe623c214a0266ea32eed323f00fc",
+    "/97-es5.05c068f8a53b76917aee.js": "21903a7e34e37d634bb57c4f9b819217a717b8c3",
     "/assets/icons/icon-128x128.png": "1cb50d6601ebaff76c0f967da939745dcaf9f89b",
     "/assets/icons/icon-144x144.png": "fab1ffb733873926ef9f44c3ad5a9b729757a23b",
     "/assets/icons/icon-152x152.png": "73f24d9aa9871fff79d66d2418d2c73d536949c4",
@@ -92,14 +92,14 @@
     "/assets/scss/fonts.css": "4c5d5bdc7c44603035fccda85e9c634ef57e864d",
     "/background.839baf7645bc7e9239db.jpg": "c5ea661fc2c7b1bc5d961bc6fba4ef72bf5bee81",
     "/favicon.ico": "cb5bba0da604041f13a0ba5f70e5f49569c136d0",
-    "/index.html": "b7b2665182ae51496ba0c72f321f0c031aee3dfe",
-    "/main-es2020.76a8b93aec520507e463.js": "de4b77f9c694cdf88b3055fdba19c32258fd1cd0",
-    "/main-es5.76a8b93aec520507e463.js": "8f5e6e5f51f44d81043c61e0cd32dd82382a62e9",
+    "/index.html": "4daafb7cbebe0003115e01d4e465a1e2f7f8a997",
+    "/main-es2020.07412e80ad472eaf9102.js": "1673d63cc29d6c9374b620c8861655cdcb726c95",
+    "/main-es5.07412e80ad472eaf9102.js": "fee8535bf257c844302ca59c2416923b5087156a",
     "/manifest.webmanifest": "849cd8a807d9d85535574af2fe6b57ed0def7618",
     "/polyfills-es2020.1f4e1e5c448dc45198c2.js": "3466fd545aa4e6d925de2a665f7abe51bfd5b0a1",
     "/polyfills-es5.6e90ce86d97dfc5c123a.js": "5ecdfff861ae3178b49dd4e93d37b202b7ecfb34",
-    "/runtime-es2020.3e198f2856a6b1219cfe.js": "c44ab78ce6dda5f09b5620087ce18e5d5a103c13",
-    "/runtime-es5.3e198f2856a6b1219cfe.js": "03dd322223f49a04a4b5f3e0ac11dec435817d58",
+    "/runtime-es2020.d7999ce5ca0bc8b673ec.js": "3df23643e13c1bfde7dd9de03543ade2ffee7d79",
+    "/runtime-es5.d7999ce5ca0bc8b673ec.js": "df49711a48e86137a08ff74e56d99336d1b4c47e",
     "/styles.547d5889255f19a8953c.css": "5eea9cd5842588b2e717b14661e19cd5b6af3de8"
   },
   "navigationUrls": [
