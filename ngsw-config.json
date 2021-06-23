@@ -30,7 +30,7 @@
     {
       "name": "projects",
       "urls": [
-        "https://api.jose-rodrigues.info/v1/devinfo/*"
+        "https://node-devinfo.herokuapp.com/rest/*"
       ],
       "cacheConfig": {
         "maxSize": 2,
