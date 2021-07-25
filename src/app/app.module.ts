@@ -7,7 +7,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import {HomeComponent} from './home.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import {GoogleAnalyticsService} from './shared/google-analytics.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import {GoogleAnalyticsService} from './shared/google-analytics.service';
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [GoogleAnalyticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

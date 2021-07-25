@@ -1,8 +1,5 @@
 import {Component, HostListener} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-
-// tslint:disable-next-line:ban-types
-declare let gtag: Function;
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +12,6 @@ export class AppComponent {
   private isReady = true;
 
   constructor(private router: Router) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd){
-
-        console.log(event.urlAfterRedirects);
-        gtag('config', 'G-04P2RSXZYB', {page_path: event.urlAfterRedirects});
-      }
-    });
   }
 
   @HostListener('document:keypress', ['$event'])
