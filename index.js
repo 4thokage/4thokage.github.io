@@ -1,14 +1,3 @@
-/*
-Measures of Time
-
-Information taken from:
-Gender Wage Gap: https://www.payscale.com/data/gender-pay-gap
-Books Published: https://www.worldometers.info/books/
-Trees cut: https://www.theworldcounts.com/challenges/planet-earth/forests-and-deserts/rate-of-deforestation/story
-Sea level rise: https://climate.nasa.gov/news/2680/new-study-finds-sea-level-rise-accelerating
-Voyager-1 Data: https://voyager.jpl.nasa.gov/mission/status/
-*/
-
 let tCut = 0;
 let gGap = 0;
 let tLeft;
