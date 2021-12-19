@@ -19,9 +19,9 @@ let italics, interMed, interBold;
 let cpeach, cgreen, ccream, cpurple, colive, cred;
 
 function preload() {
-  italics = loadFont('LibreBaskerville-Italic.ttf');
-  interMed = loadFont('Inter-Medium.ttf');
-  interBold = loadFont('Inter-Bold.ttf');
+  italics = loadFont('SpaceMono-Italic.ttf');
+  interMed = loadFont('SpaceMono-Regular.ttf');
+  interBold = loadFont('SpaceMono-Bold.ttf');
 }
 
 function setup() {
@@ -44,10 +44,10 @@ function draw() {
   fill(cpeach);
   rect(0, 0, 300, 200);
   fill(cred);
-  booksPublished(150, 100);
+  covidCases(150, 100);
   textFont(italics);
   textSize(13);
-  text("Books Published", 150, 200 - 10);
+  text("Novos casos COVID-19 (mundial)", 150, 200 - 10);
 
   //Top Right
   fill(cred);
@@ -56,7 +56,7 @@ function draw() {
   treeCut(450, 100);
   textFont(italics);
   textSize(12);
-  text("Trees Cut (ha)", 450, 200 - 10);
+  text("Árvores cortadas (hectares)", 450, 200 - 10);
 
   //Mid Left
   fill(ccream);
@@ -65,7 +65,7 @@ function draw() {
   hoursLeft(150, 300);
   textFont(italics);
   textSize(12);
-  text("Time Left to Live (hrs)", 150, 400 - 10);
+  text("Tempo de vida que me resta (hrs)", 150, 400 - 10);
 
   // Mid Right
   fill(cpurple);
@@ -74,7 +74,7 @@ function draw() {
   oceanLevel(450, 300);
   textFont(italics);
   textSize(12);
-  text("Sea Level Rise (mm)", 450, 400 - 10);
+  text("Aumento do nivel do mar (mm)", 450, 400 - 10);
 
   //Bottom Left
   fill(colive);
@@ -83,16 +83,16 @@ function draw() {
   voyagerJourney(150, 500);
   textFont(italics);
   textSize(12);
-  text("Distance covered by Voyager-1 (km)", 150, 600 - 10);
+  text("Distancia percorrida pelo Voyager-1 (km)", 150, 600 - 10);
 
   //Bottom Right
   fill(cgreen);
   rect(300, 400, 300, 200);
   fill(colive);
-  genderGap(450, 500);
+  ptDebt(450, 500);
   textFont(italics);
   textSize(12);
-  text("Gender Wage Debt ($)", 450, 600 - 10);
+  text("Nova divida Portuguesa (€)", 450, 600 - 10);
 
 
   //mouse
@@ -103,14 +103,14 @@ function draw() {
 }
 
 
-function booksPublished(x, y) {
-  // 1,951,483 in 265 days
-  //7364 per day; 306 an hour; 5.1 a min
+function covidCases(x, y) {
+  //489,685 per day; 20403.54167 per hour:
+
   textFont(interBold);
   textSize(40);
   text(str(bPub), x, y);
   if (frameCount % (30 * 60) == 0) {
-    bPub += 5.1;
+    bPub += 34.05;
   }
 }
 
@@ -161,12 +161,11 @@ function voyagerJourney(x, y) {
   }
 }
 
-function genderGap(x, y) {
-  // Gender pay gap (-) 81%
+function ptDebt(x, y) {
   textFont(interBold);
   textSize(40);
   text(str(round(gGap, 2)), x, y);
-  if (frameCount % 30 == 0) {
-    gGap -= 0.19;
+  if (frameCount % 10 == 0) {
+    gGap += 2.4;
   }
 }
