@@ -5,7 +5,6 @@ import { SITE, USE_POST_IMG_OVERLAY, USE_AUTHOR_CARD, USE_SUBSCRIPTION, USE_VIEW
 import MainLayout from '$/components/MainLayout.astro'
 import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
-import PostStats from '$/components/PostStats.svelte'
 import EditUrl from '$/components/EditLink.astro'
 
 
@@ -55,7 +54,6 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                         { USE_VIEW_STATS && ` | `}
                         { USE_VIEW_STATS && 
                             <Icon class="w-5 h-5 inline-block" pack="mdi" name="eye" />
-                            <PostStats slug={meta?.slug} client:load /> 
                         }
                         <!-- | <Icon class="w-5 h-5 inline-block" pack="mdi" name="clock" /> 2 mins -->
                     </span>
@@ -89,16 +87,6 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                                 <span class="author-card__author">{ AUTHOR_NAME }</span>
                         }
                         <p class="author-card__bio">{ SITE.authorBio }</p>
-                        <br/>
-                        {
-                            USE_SUBSCRIPTION ?
-                            <form action="" class="subscription-form">
-                                <label for="email"></label>
-                                <input type="email" name="email" class="flex-grow border-0 text-theme-accent-gray-dark" required="true">
-                                <button type="submit">Subscribe</button>
-                            </form> :
-                            <a class="author-card__follow-btn button" target="_blank" href={`https://twitter.com/intent/follow?screen_name=${AUTHOR_TWITTER}`}><Icon class="w-5 h-5 inline-block" pack="mdi" name="twitter" /> Follow on Twitter</a>
-                        }
                     </div>
                 </div>
                 <br/>

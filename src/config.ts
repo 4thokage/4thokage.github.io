@@ -14,8 +14,8 @@ export const NAV_ITEMS: NavItems = {
 		title: "tags",
 	},
 	media: {
-		path: "/showcase",
-		title: "showcase",
+		path: "/cv",
+		title: "CV",
 	},
 	about: {
 		path: "/music",
@@ -29,7 +29,7 @@ export const SITE = {
 	description: "Zezadas Personal website",
 	url: "https://jose-rodrigues.info",
 	githubUrl: "https://github.com/4thokage/4thokage.github.io",
-	listDrafts: true,
+	listDrafts: false,
 	image:
 		"https://raw.githubusercontent.com/4thokage/4thokage.github.io/main/public/banner.png",
 	ytChannelId: "@JoseRodrigues-if7ct",
@@ -43,7 +43,7 @@ export const PAGE_SIZE = 8;
 export const USE_POST_IMG_OVERLAY = false;
 export const USE_MEDIA_THUMBNAIL = true;
 
-export const USE_AUTHOR_CARD = true;
+export const USE_AUTHOR_CARD = false;
 export const USE_SUBSCRIPTION = false; /* works only when USE_AUTHOR_CARD is true */
 
-export const USE_VIEW_STATS = true;
+export const USE_VIEW_STATS = false;

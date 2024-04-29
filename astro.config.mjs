@@ -34,7 +34,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
     resolve: {
       alias: {
         $: path.resolve(__dirname, './src'),
-        "svgo": import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo"
+        "svgo": "svgo/dist/svgo.browser.js"
       }
     },
     optimizeDeps: {
