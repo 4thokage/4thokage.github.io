@@ -5,52 +5,41 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import { defineConfig } from "astro/config";
-import vercel from "@astrojs/vercel/serverless";
 import markdoc from "@astrojs/markdoc";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-import remarkCodeTitles from 'remark-code-titles'
+import remarkCodeTitles from 'remark-code-titles';
 import decapCmsOauth from "astro-decap-cms-oauth";
+import cloudflare from "@astrojs/cloudflare";
 
-// Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
-
-// https://astro.build/config
 export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   output: 'server',
-  site: 'https://jose-rodrigues.info', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
+  site: 'https://jose-rodrigues.info',
   server: {
-    // port: 4321, // The port to run the dev server on.
+    // port: 4321, 
   },
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
-      theme: 'css-variables',
+      theme: 'css-variables'
     },
-    remarkPlugins: [
-      remarkCodeTitles
-    ]
+    remarkPlugins: [remarkCodeTitles]
   },
-  integrations: [
-    mdx(), 
-    markdoc(),
-    svelte(), 
-    tailwind({
-      applyBaseStyles: false,
-    }), 
-    sitemap(),
-    decapCmsOauth()
-  ],
+  integrations: [mdx(), markdoc(), svelte(), tailwind({
+    applyBaseStyles: false
+  }), sitemap(), decapCmsOauth()],
   vite: {
     plugins: [],
     resolve: {
       alias: {
-        $: path.resolve(__dirname, './src')
+        $: path.resolve(__dirname, './src'),
+        "svgo": import.meta.env.PROD ? "svgo/dist/svgo.browser.js" : "svgo"
       }
     },
     optimizeDeps: {
       allowNodeBuiltins: true
     }
   },
-  adapter: vercel()
+  adapter: cloudflare()
 });
