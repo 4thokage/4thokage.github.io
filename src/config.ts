@@ -15,7 +15,7 @@ export const NAV_ITEMS: NavItems = {
 	},
 	media: {
 		path: "/cv",
-		title: "CV",
+		title: "cv",
 	},
 	about: {
 		path: "/music",
