@@ -1,7 +1,7 @@
 ---
 export const prerender = true
 
-import { getCollection, getEntryBySlug } from 'astro:content'
+import { getCollection } from 'astro:content'
 import DefaultPageLayout from '$/layouts/default.astro'
 import PostPreviewList from '$/components/PostPreviewList.astro'
 import Prose from '$/components/Prose.astro'
@@ -22,7 +22,7 @@ const posts = await getCollection('blog')
         </div>
         <div class="hero__says">
             <Prose>
-            I'm José, a software developer who's all about Java and frontend stuff. When I'm not coding, I'm probably in my workshop, making cool stuff out of wood. Music is my jam—I love playing around with instruments. And when I'm not making noise, I'm playing with electronics, trying to figure out how they work. Basically, I'm into mixing creativity, hands-on work, and tech in everything I do.
+            I'm José, a software developer who's all about Java. When I'm not coding, I'm probably in my workshop, making stuff out of wood. Music is my jam—I love playing around with instruments. And when I'm not making noise, I'm playing with electronics, trying to figure out how they work. Basically, I'm into mixing creativity, hands-on work, and tech in everything I do.
             </Prose>
         </div>
     </div>

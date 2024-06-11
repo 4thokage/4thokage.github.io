@@ -9,15 +9,11 @@ export const NAV_ITEMS: NavItems = {
 		path: "/blog",
 		title: "blog",
 	},
-	tags: {
-		path: "/tags",
-		title: "tags",
-	},
-	media: {
-		path: "/cv",
+	resume: {
+		path: "/assets/cv.pdf",
 		title: "cv",
 	},
-	about: {
+	music: {
 		path: "/music",
 		title: "music",
 	},
@@ -28,7 +24,7 @@ export const SITE = {
 	title: "José Silva Rodrigues",
 	description: "Zezadas Personal website",
 	url: "https://jose-rodrigues.info",
-	githubUrl: "https://github.com/4thokage/4thokage.github.io",
+	githubUrl: "https://github.com/4thokage/4thokage",
 	listDrafts: false,
 	image:
 		"https://raw.githubusercontent.com/4thokage/4thokage.github.io/main/public/banner.png",
