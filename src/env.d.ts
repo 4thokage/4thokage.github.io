@@ -3,7 +3,6 @@
 
 interface ImportMetaEnv {
   readonly SITE_URI: string;
-  readonly KEYSTATIC_GITHUB_CLIENT_ID: string;
   // more env variables...
 }
 
