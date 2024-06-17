@@ -4,9 +4,9 @@ backend:
   publish_mode: editorial_workflow
   repo: 4thokage/4thokage.github.io
   site_domain: jose-rodrigues.info 
-  base_url: https://jose-rodrigues.info 
+  base_url: https://jose-rodrigues.info
   auth_scope: repo
-  auth_endpoint: oauth
+  auth_endpoint: /oauth
   display_url: https://jose-rodrigues.info
   logo_url: https://jose-rodrigues.info/assets/logo.svg
   commit_messages:

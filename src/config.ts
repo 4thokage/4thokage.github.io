@@ -24,7 +24,7 @@ export const SITE = {
 	title: "José Silva Rodrigues",
 	description: "Zezadas Personal website",
 	url: "https://jose-rodrigues.info",
-	githubUrl: "https://github.com/4thokage/4thokage",
+	githubUrl: "https://github.com/4thokage/4thokage.github.io",
 	listDrafts: false,
 	image:
 		"https://raw.githubusercontent.com/4thokage/4thokage.github.io/main/public/banner.png",
@@ -37,7 +37,7 @@ export const SITE = {
 // Ink - Theme configuration
 export const PAGE_SIZE = 8;
 export const USE_POST_IMG_OVERLAY = false;
-export const USE_MEDIA_THUMBNAIL = true;
+export const USE_MEDIA_THUMBNAIL = false;
 
 export const USE_AUTHOR_CARD = false;
 export const USE_SUBSCRIPTION = false; /* works only when USE_AUTHOR_CARD is true */
