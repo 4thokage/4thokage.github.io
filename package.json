@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^10.4.0",
-    "@astrojs/markdoc": "^0.11.0"
+    "@astrojs/markdoc": "^0.11.0",
+    "astro-decap-cms-oauth": "^0.3.0"
   },
   "config": {
     "commitizen": {

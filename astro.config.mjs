@@ -13,39 +13,33 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://docs.astro.build/reference/configuration-reference
 
+import decapCmsOauth from "astro-decap-cms-oauth";
+
 // https://astro.build/config
-export default defineConfig(
-  /** @type {import('astro').AstroUserConfig} */ {
-    output: "server",
-    site: "https://jose-rodrigues.info",
-    server: {
-      // port: 4321,
+export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
+  output: "server",
+  site: "https://jose-rodrigues.info",
+  server: {
+    // port: 4321,
+  },
+  markdown: {
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "css-variables"
     },
-    markdown: {
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-        theme: "css-variables",
-      },
-      remarkPlugins: [remarkCodeTitles],
-    },
-    integrations: [
-      mdx(),
-      markdoc(),
-      svelte(),
-      tailwind({
-        applyBaseStyles: false,
-      }),
-      sitemap(),
-    ],
-    vite: {
-      plugins: [],
-      resolve: {
-        alias: {
-          $: path.resolve(__dirname, "./src"),
-          svgo: "svgo/dist/svgo.browser.js",
-        },
-      },
-    },
-    adapter: cloudflare(),
-  }
-);
+    remarkPlugins: [remarkCodeTitles]
+  },
+  integrations: [mdx(), markdoc(), svelte(), tailwind({
+    applyBaseStyles: false
+  }), sitemap(), decapCmsOauth()],
+  vite: {
+    plugins: [],
+    resolve: {
+      alias: {
+        $: path.resolve(__dirname, "./src"),
+        svgo: "svgo/dist/svgo.browser.js"
+      }
+    }
+  },
+  adapter: cloudflare()
+});
