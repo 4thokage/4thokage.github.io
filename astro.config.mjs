@@ -46,8 +46,6 @@ export default defineConfig(
         },
       },
     },
-    adapter: cloudflare({
-      imageService: "cloudflare",
-    }),
+    adapter: cloudflare(),
   }
 );
