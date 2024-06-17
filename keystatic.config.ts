@@ -2,8 +2,11 @@ import { config, fields, collection } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "local",
+    kind: "cloud",
     //repo: `4thokage/4thokage.github.io`,
+  },
+  cloud: {
+    project: "devs/website",
   },
 
   collections: {
