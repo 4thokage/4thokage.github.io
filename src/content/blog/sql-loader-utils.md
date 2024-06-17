@@ -5,9 +5,8 @@ tags:
   - oracle
   - sqlldr
   - spring-batch
-author: Fred K Schott
-authorTwitter: FredKSchott
-date: "2018-03-28T12:30:31.210Z"
+author: JSR
+date: "2018-03-28"
 image: https://astro.build/_astro/cover_Z1RYPju.webp
 category: Tooling
 ---

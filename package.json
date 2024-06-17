@@ -41,7 +41,13 @@
   "dependencies": {
     "@astrojs/cloudflare": "^10.4.0",
     "@astrojs/markdoc": "^0.11.0",
-    "astro-decap-cms-oauth": "^0.3.0"
+    "@astrojs/react": "^3.5.0",
+    "@keystatic/astro": "^5.0.0",
+    "@keystatic/core": "^0.5.20",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "config": {
     "commitizen": {

@@ -4,16 +4,22 @@ description: A simple tool to extract and load oracle DB data
 tags:
   - javafx
 author: JSR
-authorTwitter: Zezadas1
-date: "2018-03-31T17:57:00.000Z"
+date: "2018-03-31"
 category: Tooling
 ---
 
 While developing with sqlldr, I made a tool to speed up some boring work (like making those freaking huge control files...)
 
 ## Downloads
-* Jar: [v1.0](/software/ctlper-1.0-SNAPSHOT-jar-with-dependencies.jar)
-* Sources: [v1.0 (.zip)](/software/ctlper1.0.7z)
+* [v1.0 - Release files](https://github.com/4thokage/ctlfx/releases/tag/1.0.0-RELEASE)
+* Maven:
+```xml
+<dependency>
+  <groupId>pt.zenit.oracle</groupId>
+  <artifactId>ctlfx</artifactId>
+  <version>1.0.0-RELEASE</version>
+</dependency> 
+```
 
 ### What does it do?
 Well it's a simple JavaFX app that generates some files for you:

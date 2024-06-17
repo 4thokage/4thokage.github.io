@@ -13,7 +13,9 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://docs.astro.build/reference/configuration-reference
 
-import decapCmsOauth from "astro-decap-cms-oauth";
+import keystatic from "@keystatic/astro";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
@@ -31,7 +33,7 @@ export default defineConfig( /** @type {import('astro').AstroUserConfig} */{
   },
   integrations: [mdx(), markdoc(), svelte(), tailwind({
     applyBaseStyles: false
-  }), sitemap(), decapCmsOauth()],
+  }), sitemap(), react(), keystatic()],
   vite: {
     plugins: [],
     resolve: {
