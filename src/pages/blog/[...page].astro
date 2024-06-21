@@ -12,7 +12,7 @@ let description = 'Some of my toughts...'
 
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection('blog');
-  const sortedPosts = allPosts.sort((a: Date, b: Date) => new Date(b.data.date) - new Date(a.data.date));
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 
     return paginate(sortedPosts, {
       pageSize: PAGE_SIZE

@@ -2,7 +2,7 @@ import { config, fields, collection } from "@keystatic/core";
 
 export default config({
   storage: {
-    kind: "cloud",
+    kind: "local",
     //repo: `4thokage/4thokage.github.io`,
   },
   cloud: {
@@ -39,14 +39,23 @@ export default config({
         }),
       },
     }),
-    songs: collection({
+    music: collection({
       label: "Songs",
       slugField: "title",
       path: "src/content/music/*",
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
+        date: fields.date({ label: "Publish Date", defaultValue: 'today' }),
+        duration: fields.integer({ label: "Duration", defaultValue: 0 }),
+        image: fields.image({
+          label: "Cover",
+          directory: "public/images/uploads",
+          publicPath: "/images/uploads/",
+        }),
         content: fields.file({
           label: "File",
+          directory: "public/assets",
+          publicPath: "/assets/",
         }),
       },
     }),
