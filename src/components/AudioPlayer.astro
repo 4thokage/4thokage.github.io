@@ -8,7 +8,7 @@ import AudioMutedIcon from "$/components/icons/AudioMutedIcon.astro";
 
 <div
   id="audio-player-container"
-  class="absolute top-20 z-20 h-16 hidden opacity-0 transition-opacity duration-500"
+  class="hidden opacity-0 transition-opacity duration-500"
 >
   <audio src="" preload="metadata"></audio>
   <span
@@ -149,7 +149,7 @@ import AudioMutedIcon from "$/components/icons/AudioMutedIcon.astro";
     btn.addEventListener("click", () => {
       if (!audio.src.includes(btn.dataset.audioUrl)) {
         musicPlayer?.classList.remove("hidden");
-        musicPlayer?.classList.add("flex");
+        //musicPlayer?.classList.add("flex");
         footer?.classList.add("pb-24");
         setTimeout(() => musicPlayer?.classList.remove("opacity-0"), 100);
         audioLoading?.classList.remove("hidden");
