@@ -23,13 +23,11 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
-console.log(page.data);
 ---
 
 <DefaultPageLayout content={{ title, description }}>
-  <div
-    class="flex justify-center items-center dark:bg-gray-800 w-full"
-  >
+  <AudioPlayer />
+  <div class="flex justify-center items-center dark:bg-gray-800 w-full">
     {
       page.data.map((audio: any, index: number) => (
         <AudioCard
@@ -42,10 +40,6 @@ console.log(page.data);
         />
       ))
     }
-    <p class="text-gray-600 dark:text-gray-300">
-      <AudioPlayer />
-    </p>
   </div>
-
   <Paginator page={page} />
 </DefaultPageLayout>
