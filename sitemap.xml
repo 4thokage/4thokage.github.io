@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlloader/</loc>
+		<loc>https://jose-rodrigues.info/blog/ctlloader/</loc>
 		<lastmod>2018-03-28</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlhelper/</loc>
+		<loc>https://jose-rodrigues.info/blog/ctlhelper/</loc>
 		<lastmod>2018-03-31</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/projects/ctlhelper/</loc>
+		<loc>https://jose-rodrigues.info/projects/ctlhelper/</loc>
 		<lastmod>2018-03-31</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/about/</loc>
+		<loc>https://jose-rodrigues.info/about/</loc>
 		<lastmod>2024-12-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/blog/</loc>
+		<loc>https://jose-rodrigues.info/blog/</loc>
 		<lastmod>2024-12-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/</loc>
+		<loc>https://jose-rodrigues.info/</loc>
 		<lastmod>2024-12-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/tags/</loc>
+		<loc>https://jose-rodrigues.info/tags/</loc>
 		<lastmod>2024-12-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://jose-rodrigues.info/eleventy-base-blog/feed/feed.xml</loc>
+		<loc>https://jose-rodrigues.info/feed/feed.xml</loc>
 		<lastmod>2024-12-04</lastmod>
 	</url>
 </urlset>

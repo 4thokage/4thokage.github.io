@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Zezas</title>
   <subtitle>Random nerd things.</subtitle>
-  <link href="https://jose-rodrigues.info/eleventy-base-blog/feed/feed.xml" rel="self" />
-  <link href="https://jose-rodrigues.info/eleventy-base-blog/" />
+  <link href="https://jose-rodrigues.info/feed/feed.xml" rel="self" />
+  <link href="https://jose-rodrigues.info/" />
   <updated>2018-03-31T00:00:00Z</updated>
-  <id>https://jose-rodrigues.info/eleventy-base-blog/</id>
+  <id>https://jose-rodrigues.info/</id>
   <author>
     <name>Your Name</name>
   </author>
   <entry>
     <title>CTL Helper</title>
-    <link href="https://jose-rodrigues.info/eleventy-base-blog/blog/ctlhelper/" />
+    <link href="https://jose-rodrigues.info/blog/ctlhelper/" />
     <updated>2018-03-31T00:00:00Z</updated>
-    <id>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlhelper/</id>
+    <id>https://jose-rodrigues.info/blog/ctlhelper/</id>
     <content type="html">&lt;p&gt;While developing with sqlldr, I made a tool to speed up some boring work (like making those freaking huge control files...)&lt;/p&gt;
 &lt;h2 id=&quot;downloads&quot;&gt;Downloads&lt;/h2&gt;
 &lt;ul&gt;
@@ -36,9 +36,9 @@
   </entry>
   <entry>
     <title>SQL* Loader - Copying data from/to Oracle DB</title>
-    <link href="https://jose-rodrigues.info/eleventy-base-blog/blog/ctlloader/" />
+    <link href="https://jose-rodrigues.info/blog/ctlloader/" />
     <updated>2018-03-28T00:00:00Z</updated>
-    <id>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlloader/</id>
+    <id>https://jose-rodrigues.info/blog/ctlloader/</id>
     <content type="html">&lt;p&gt;Today I needed to migrate data between two Databases, using sqlldr and spring-batch, here&#39;s some toughts on it:&lt;/p&gt;
 &lt;h2 id=&quot;exporting-data&quot;&gt;Exporting data&lt;/h2&gt;
 &lt;p&gt;Using a select query such as:&lt;/p&gt;
