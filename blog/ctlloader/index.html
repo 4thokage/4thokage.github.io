@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SQL* Loader - Copying data from/to Oracle DB</title>
+		<meta name="description" content="A simple tool to extract data">
+		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="Zezas">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* This is an arbitrary CSS string added to the bundle */
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Footer */
+.footer__icon svg {
+  width: 5%;  /* Makes the SVG 1/4 of the original size */
+  padding-left: 10px;  /* Adds some padding to the left */
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/eleventy-base-blog/" class="home-link">Zezas</a>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/eleventy-base-blog/">Home</a></li>
+					<li class="nav-item"><a href="/eleventy-base-blog/blog/">Writing</a></li>
+					<li class="nav-item"><a href="/eleventy-base-blog/about/">About</a></li>
+					<li class="nav-item"><a href="/eleventy-base-blog/feed/feed.xml">Feed</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<heading-anchors>
+				
+<h1 id="sql-loader-copying-data-from-to-oracle-db">SQL* Loader - Copying data from/to Oracle DB</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2018-03-28">28 March 2018</time></li>
+	<li><a href="/eleventy-base-blog/tags/oracle/" class="post-tag">oracle</a>, </li>
+	<li><a href="/eleventy-base-blog/tags/sqlldr/" class="post-tag">sqlldr</a>, </li>
+	<li><a href="/eleventy-base-blog/tags/spring-batch/" class="post-tag">spring-batch</a></li>
+</ul>
+
+<p>Today I needed to migrate data between two Databases, using sqlldr and spring-batch, here's some toughts on it:</p>
+<h2 id="exporting-data">Exporting data</h2>
+<p>Using a select query such as:</p>
+<pre class="language-sql" tabindex="0"><code class="language-sql"><span class="token keyword">SELECT</span> NVL<span class="token punctuation">(</span>RPAD<span class="token punctuation">(</span><span class="token keyword">DUMMY</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">,</span> RPAD<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> DUAL<span class="token punctuation">;</span></code></pre>
+<p>Gets us the data we need with a fixed width (using left-pad for numeric values and right-pad for everything else), the output is then written into a file.</p>
+<h3 id="pros">Pros:</h3>
+<ul>
+<li>Padding with spaces stops numerical wizardry (ex. '  -3,32' instead of '00-3,32' with '0' as the pad character);</li>
+<li>No need to use a very very very specific delimiter;</li>
+<li>Easier check for data inconsistency (for humans) as data is aligned;</li>
+</ul>
+<h3 id="cons">Cons:</h3>
+<ul>
+<li>Numeric values probably need to be trimmed to work against all Databases;</li>
+<li>Kinda goes against the standard;</li>
+</ul>
+<h3 id="observations">Observations:</h3>
+<ul>
+<li>In the task given, we encountered line breaks in some DB rows, so writing to a file caused a major pain in the S, we did manage to solve it by using a replace (using '{0}' as the placeholder):</li>
+</ul>
+<pre class="language-sql" tabindex="0"><code class="language-sql"><span class="token keyword">SELECT</span> NVL<span class="token punctuation">(</span>RPAD<span class="token punctuation">(</span>
+    <span class="token keyword">REPLACE</span><span class="token punctuation">(</span><span class="token keyword">DUMMY</span><span class="token punctuation">,</span>CHR<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">||</span>CHR<span class="token punctuation">(</span><span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'{0}'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    RPAD<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token string">' '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> DUAL<span class="token punctuation">;</span></code></pre>
+<h2 id="importing-data">Importing data</h2>
+<p>Using a Control file such as:</p>
+<pre class="language-sql" tabindex="0"><code class="language-sql">OPTIONS <span class="token punctuation">(</span>BINDSIZE<span class="token operator">=</span><span class="token number">512000</span><span class="token punctuation">,</span> <span class="token keyword">ROWS</span><span class="token operator">=</span><span class="token number">10000</span><span class="token punctuation">)</span>
+<span class="token keyword">LOAD</span> <span class="token keyword">DATA</span>
+CHARACTERSET WE8ISO8859P1
+<span class="token keyword">infile</span> <span class="token operator">*</span>
+append
+<span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> MYSCHEMA<span class="token punctuation">.</span>MYTABLE
+<span class="token punctuation">(</span>
+    <span class="token string">"ID"</span>      POSITION <span class="token punctuation">(</span><span class="token number">1</span>:<span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"FOO"</span>     POSITION <span class="token punctuation">(</span><span class="token number">9</span>:<span class="token number">108</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+<p>Using DIRECT path load is proven to be much faster but this way we can garantee constraint health as the job is performing inserts instead of populating Oracle tables with the data in the files.</p>
+<h2 id="the-stack">The stack</h2>
+<p>I'm using a simple tasklet to perform generic extract/ loading of data. I might write another post with the details of our implementation.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-next">Next →<br><a href="/eleventy-base-blog/blog/ctlhelper/">CTL Helper</a></li>
+</ul>
+
+			</heading-anchors>
+		</main>
+
+		<p id="footer">
+		  <a href="https://github.com/4thokage/4thokage.github.io/tree/main/./content/blog/ctlloader.md" class="footer__icon" title="Edit this page on Github">
+			  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+  <path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"></path>
+</svg>
+			</a>
+		</p>
+
+		<script type="module" src="/eleventy-base-blog/dist/rJ3_G-2ArF.js"></script>
+	</body>
+</html>

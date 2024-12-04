@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="pretty-atom-feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Zezas</title>
+  <subtitle>Random nerd things.</subtitle>
+  <link href="https://jose-rodrigues.info/eleventy-base-blog/feed/feed.xml" rel="self" />
+  <link href="https://jose-rodrigues.info/eleventy-base-blog/" />
+  <updated>2018-03-31T00:00:00Z</updated>
+  <id>https://jose-rodrigues.info/eleventy-base-blog/</id>
+  <author>
+    <name>Your Name</name>
+  </author>
+  <entry>
+    <title>CTL Helper</title>
+    <link href="https://jose-rodrigues.info/eleventy-base-blog/blog/ctlhelper/" />
+    <updated>2018-03-31T00:00:00Z</updated>
+    <id>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlhelper/</id>
+    <content type="html">&lt;p&gt;While developing with sqlldr, I made a tool to speed up some boring work (like making those freaking huge control files...)&lt;/p&gt;
+&lt;h2 id=&quot;downloads&quot;&gt;Downloads&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/4thokage/ctlfx/releases/tag/1.0.0-RELEASE&quot;&gt;v1.0 - Release files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Maven:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-xml&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;pt.zenit.oracle&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;groupId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;ctlfx&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;artifactId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;1.0.0-RELEASE&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;dependency&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;what-does-it-do&quot;&gt;What does it do?&lt;/h3&gt;
+&lt;p&gt;Well it&#39;s a simple JavaFX app that generates some files for you:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connects to specified oracle DB and reads all user tables.&lt;/li&gt;
+&lt;li&gt;Generates a Loader/Extractor CTL based on the chosen tables.&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
+  <entry>
+    <title>SQL* Loader - Copying data from/to Oracle DB</title>
+    <link href="https://jose-rodrigues.info/eleventy-base-blog/blog/ctlloader/" />
+    <updated>2018-03-28T00:00:00Z</updated>
+    <id>https://jose-rodrigues.info/eleventy-base-blog/blog/ctlloader/</id>
+    <content type="html">&lt;p&gt;Today I needed to migrate data between two Databases, using sqlldr and spring-batch, here&#39;s some toughts on it:&lt;/p&gt;
+&lt;h2 id=&quot;exporting-data&quot;&gt;Exporting data&lt;/h2&gt;
+&lt;p&gt;Using a select query such as:&lt;/p&gt;
+&lt;pre class=&quot;language-sql&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; NVL&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;RPAD&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;DUMMY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; RPAD&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; DUAL&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Gets us the data we need with a fixed width (using left-pad for numeric values and right-pad for everything else), the output is then written into a file.&lt;/p&gt;
+&lt;h3 id=&quot;pros&quot;&gt;Pros:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Padding with spaces stops numerical wizardry (ex. &#39;  -3,32&#39; instead of &#39;00-3,32&#39; with &#39;0&#39; as the pad character);&lt;/li&gt;
+&lt;li&gt;No need to use a very very very specific delimiter;&lt;/li&gt;
+&lt;li&gt;Easier check for data inconsistency (for humans) as data is aligned;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;cons&quot;&gt;Cons:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Numeric values probably need to be trimmed to work against all Databases;&lt;/li&gt;
+&lt;li&gt;Kinda goes against the standard;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;observations&quot;&gt;Observations:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In the task given, we encountered line breaks in some DB rows, so writing to a file caused a major pain in the S, we did manage to solve it by using a replace (using &#39;{0}&#39; as the placeholder):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-sql&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; NVL&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;RPAD&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;REPLACE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;DUMMY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;CHR&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;CHR&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;{0}&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    RPAD&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; DUAL&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;importing-data&quot;&gt;Importing data&lt;/h2&gt;
+&lt;p&gt;Using a Control file such as:&lt;/p&gt;
+&lt;pre class=&quot;language-sql&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;OPTIONS &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;BINDSIZE&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;512000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;ROWS&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;LOAD&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;DATA&lt;/span&gt;
+CHARACTERSET WE8ISO8859P1
+&lt;span class=&quot;token keyword&quot;&gt;infile&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;
+append
+&lt;span class=&quot;token keyword&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TABLE&lt;/span&gt; MYSCHEMA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;MYTABLE
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;      POSITION &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;FOO&quot;&lt;/span&gt;     POSITION &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;:&lt;span class=&quot;token number&quot;&gt;108&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using DIRECT path load is proven to be much faster but this way we can garantee constraint health as the job is performing inserts instead of populating Oracle tables with the data in the files.&lt;/p&gt;
+&lt;h2 id=&quot;the-stack&quot;&gt;The stack&lt;/h2&gt;
+&lt;p&gt;I&#39;m using a simple tasklet to perform generic extract/ loading of data. I might write another post with the details of our implementation.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
