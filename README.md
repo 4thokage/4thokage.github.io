@@ -1,3 +1,1 @@
-# simple website made with #astro
-
-
+# My blog/website
