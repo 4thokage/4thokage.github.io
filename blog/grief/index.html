@@ -3,11 +3,178 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Zezas</title>
-		<meta name="description" content="I rarely write about stuff">
+		<title>Amar Alguém Perdido para o Crack</title>
+		<meta name="description" content="Sobre fazer luto por alguém que ainda está vivo">
 		<link rel="alternate" href="feed/feed.xml" type="application/atom+xml" title="Zezas">
 		
-		<style>.postlist { counter-reset: start-from 4 }
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
 /* This is an arbitrary CSS string added to the bundle */
 /* Defaults */
 :root {
@@ -299,7 +466,7 @@ header {
 				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
 				<ul class="nav">
 					<li class="nav-item"><a href="/">Home</a></li>
-					<li class="nav-item"><a href="/blog/" aria-current="page">Writing</a></li>
+					<li class="nav-item"><a href="/blog/">Writing</a></li>
 					<li class="nav-item"><a href="/about/">About</a></li>
 					<li class="nav-item"><a href="/feed/feed.xml">Feed</a></li>
 				</ul>
@@ -308,32 +475,59 @@ header {
 
 		<main id="skip">
 			<heading-anchors>
-				<h1 id="writing">Writing</h1>
+				
+<h1 id="amar-alguem-perdido-para-o-crack">Amar Alguém Perdido para o Crack</h1>
 
+<ul class="post-metadata">
+	<li><time datetime="2026-02-27">27 February 2026</time></li>
+	<li><a href="/tags/pessoal/" class="post-tag">pessoal</a>, </li>
+	<li><a href="/tags/luto/" class="post-tag">luto</a>, </li>
+	<li><a href="/tags/adicao/" class="post-tag">adição</a>, </li>
+	<li><a href="/tags/saude-mental/" class="post-tag">saude-mental</a></li>
+</ul>
 
+<p>Não estava à espera de fazer luto por alguém que ainda está vivo.</p>
+<p>A parte mais difícil não foi ela ter escolhido as drogas.<br>
+Foi perceber que eu não conseguia competir com elas.<br>
+Que amar não foi suficiente para a salvar.</p>
+<p>Há qualquer coisa de violento nesta conclusão. Não violento de gritos. Violento por dentro. Daquele tipo que te reorganiza por dentro sem pedires.</p>
+<h2 id="o-ruido">O Ruído</h2>
+<p>A minha cabeça está cheia de ruído.</p>
+<p>Não é só tristeza. São discussões que repito. Mensagens que não devia ter enviado. Mensagens que devia ter enviado. O “e se eu tivesse sido mais calmo”. O “e se tivesse insistido mais”. O “e se tivesse amado melhor”.</p>
+<p>É um tribunal constante dentro da minha cabeça e eu sou ao mesmo tempo o réu e o advogado.</p>
+<p>E depois há a esperança.<br>
+A esperança é a voz mais alta de todas.</p>
+<h2 id="o-crack">O Crack</h2>
+<p>O crack não leva uma pessoa de uma vez. Substitui-a.</p>
+<p>Primeiro muda o olhar. Depois as prioridades. Depois as promessas. Depois o tempo. Depois a verdade.</p>
+<p>Eu achava que o amor era forte. Que se estivesses presente o suficiente, se aguentasses o suficiente, se perdoasses o suficiente, ele ganhava.</p>
+<p>Mas o crack não se negocia. Não quer saber de planos. Não quer saber de aniversários. Não quer saber do tempo que estiveram juntos. Não quer saber da versão dela que se ria de coisas parvas comigo.</p>
+<p>E é isso que dói. Eu não estava a competir com outra pessoa. Estava a competir com uma substância que reprogramou a pessoa que eu amava.</p>
+<p>E perdi.</p>
+<h2 id="impotencia">Impotência</h2>
+<p>Há um tipo de impotência muito específico em ver alguém que amas afastar-se para um lugar onde não podes entrar.</p>
+<p>Não porque deixou de gostar de mim.<br>
+Mas porque algo mais alto do que o amor tomou conta dela.</p>
+<p>Continuo a pensar na linha.<br>
+Na linha invisível onde deixou de ser “nós conseguimos resolver isto” e passou a ser “já não te consigo alcançar”.</p>
+<p>Não sei quando isso aconteceu.</p>
+<h2 id="o-que-estou-mesmo-a-perder">O Que Estou Mesmo a Perder</h2>
+<p>Estou a fazer luto pela pessoa que ela era antes disto.</p>
+<p>Estou a fazer luto pelo futuro que falávamos como se fosse garantido.</p>
+<p>Estou a fazer luto pela versão de mim que acreditava que conseguia aguentar os dois.</p>
+<p>E talvez esteja a fazer luto pela ilusão de que o amor é sempre suficiente.</p>
+<p>Porque às vezes não é.</p>
+<p>Às vezes o amor fica ali, exausto, a ver a adição ganhar.</p>
+<p>E tudo o que sobra é este ruído.</p>
 
-<ol reversed="" class="postlist">
-	<li class="postlist-item">
-		<a href="/blog/grief/" class="postlist-link">Amar Alguém Perdido para o Crack</a>
-		<time class="postlist-date" datetime="2026-02-27">February 2026</time>
-	</li>
-	<li class="postlist-item">
-		<a href="/blog/ctlhelper/" class="postlist-link">CTL Helper</a>
-		<time class="postlist-date" datetime="2018-03-31">March 2018</time>
-	</li>
-	<li class="postlist-item">
-		<a href="/blog/ctlloader/" class="postlist-link">SQL* Loader - Copying data from/to Oracle DB</a>
-		<time class="postlist-date" datetime="2018-03-28">March 2018</time>
-	</li>
-</ol>
-
-
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/blog/ctlhelper/">CTL Helper</a></li>
+</ul>
 
 			</heading-anchors>
 		</main>
 
 		<p id="footer">
-		  <a href="https://github.com/4thokage/4thokage.github.io/tree/main/./content/blog.njk" class="footer__icon" title="Edit this page on Github">
+		  <a href="https://github.com/4thokage/4thokage.github.io/tree/main/./content/blog/grief.md" class="footer__icon" title="Edit this page on Github">
 			  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
   <path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"></path>
 </svg>
