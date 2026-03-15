@@ -3,18 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>Zezas</title>
   <subtitle>Random nerd things.</subtitle>
-  <link href="https://jose-rodrigues.info/feed/feed.xml" rel="self" />
-  <link href="https://jose-rodrigues.info/" />
+  <link href="https://4thokage.github.io/feed/feed.xml" rel="self" />
+  <link href="https://4thokage.github.io/" />
   <updated>2026-02-27T00:00:00Z</updated>
-  <id>https://jose-rodrigues.info/</id>
+  <id>https://4thokage.github.io/</id>
   <author>
-    <name>Your Name</name>
+    <name>Josezas</name>
   </author>
   <entry>
     <title>Miragem da paz</title>
-    <link href="https://jose-rodrigues.info/blog/grief/" />
+    <link href="https://4thokage.github.io/blog/grief/" />
     <updated>2026-02-27T00:00:00Z</updated>
-    <id>https://jose-rodrigues.info/blog/grief/</id>
+    <id>https://4thokage.github.io/blog/grief/</id>
     <content type="html">&lt;p&gt;Ela sorri no brilho falso,&lt;/p&gt;
 &lt;p&gt;ouro que engana o coração.&lt;/p&gt;
 &lt;p&gt;Paz que some como fumaça,&lt;/p&gt;
@@ -23,9 +23,9 @@
   </entry>
   <entry>
     <title>CTL Helper</title>
-    <link href="https://jose-rodrigues.info/blog/ctlhelper/" />
+    <link href="https://4thokage.github.io/blog/ctlhelper/" />
     <updated>2018-03-31T00:00:00Z</updated>
-    <id>https://jose-rodrigues.info/blog/ctlhelper/</id>
+    <id>https://4thokage.github.io/blog/ctlhelper/</id>
     <content type="html">&lt;p&gt;While developing with sqlldr, I made a tool to speed up some boring work (like making those freaking huge control files...)&lt;/p&gt;
 &lt;h2 id=&quot;downloads&quot;&gt;Downloads&lt;/h2&gt;
 &lt;ul&gt;
@@ -47,9 +47,9 @@
   </entry>
   <entry>
     <title>SQL* Loader - Copying data from/to Oracle DB</title>
-    <link href="https://jose-rodrigues.info/blog/ctlloader/" />
+    <link href="https://4thokage.github.io/blog/ctlloader/" />
     <updated>2018-03-28T00:00:00Z</updated>
-    <id>https://jose-rodrigues.info/blog/ctlloader/</id>
+    <id>https://4thokage.github.io/blog/ctlloader/</id>
     <content type="html">&lt;p&gt;Today I needed to migrate data between two Databases, using sqlldr and spring-batch, here&#39;s some toughts on it:&lt;/p&gt;
 &lt;h2 id=&quot;exporting-data&quot;&gt;Exporting data&lt;/h2&gt;
 &lt;p&gt;Using a select query such as:&lt;/p&gt;
