@@ -65,9 +65,9 @@ export default async function(eleventyConfig) {
 			language: "en",
 			title: "Zezas",
 			subtitle: "Random nerd things.",
-			base: "https://jose-rodrigues.info/",
+			base: "https://4thokage.github.io/",
 			author: {
-				name: "Your Name"
+				name: "Josezas"
 			}
 		}
 	});
